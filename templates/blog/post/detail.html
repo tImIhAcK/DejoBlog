@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load blog_tags %}
+{% block title %}{{ post.title }}{% endblock title %}
+
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <small>Published {{ post.publish }} by {{ post.author }}</small>
+    <p>{{ post.body|safe }}</p>
+
+    <h3>Similar posts</h3>
+    
+    {% for post in similar_posts %}
+        <p>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </p>
+    {% empty %}
+        There are no similar posts.
+    {% endfor %}
+        
+
+    {% include 'blog/includes/_comment.html' %}
+    <br><br><br>
+    <a href="{% url 'blog:post_list' %}">Go back</a>
+{% endblock content %}
