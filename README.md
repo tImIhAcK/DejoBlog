@@ -7,6 +7,6 @@
 #### Tagging post
 #### Recommending  similar post
 #### Sitemaps and post feed
-#### Full text search with MySql
+#### Full text search with Postgres
 
 ### CSS not added yet.... just raw HTML

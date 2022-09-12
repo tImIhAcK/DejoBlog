@@ -30,7 +30,11 @@
                 {% endfor %}
             </h4>
             <small>Published {{ post.publish }} by {{ post.author }}</small><br><br>
-            <p>{{ post.body|safe}}</p>
+            <p>{{ post.body|safe|truncatewords_html:150}}</p>
+            <br>
+             <a href="{{ post.get_absolute_url }}">
+                    Read More
+                </a>
             <hr>
         {% endfor %}
     {% else %}
